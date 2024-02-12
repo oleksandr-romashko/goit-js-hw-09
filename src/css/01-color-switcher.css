@@ -1,0 +1,46 @@
+:root {
+  --color-grey: #eeedef;
+  --color-grey-darker: rgb(225, 225, 225);
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding: 16px;
+  margin: 0;
+}
+
+.color-switcher {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+.color-switcher button {
+  padding: 14px 24px;
+  border-radius: 0;
+  text-transform: uppercase;
+  background-color: var(--color-grey);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: background-color var(--animation-duration) var(--timing-function);
+}
+
+.color-switcher button:hover {
+  background-color: var(--color-grey-darker);
+}
+
+.color-switcher button:disabled {
+  opacity: 50%;
+}

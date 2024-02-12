@@ -1,0 +1,88 @@
+.datetime-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .datetime-picker-wrapper {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+.datetime-picker-wrapper input {
+  max-width: 260px;
+  width: 100%;
+  padding: 4px;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .datetime-picker-wrapper input {
+    max-width: 200px;
+    width: 100%;
+    padding: 4px;
+    font-size: 16px;
+  }
+}
+
+.datetime-picker-wrapper button {
+  max-width: 260px;
+  width: 100%;
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .datetime-picker-wrapper button {
+    width: fit-content;
+  }
+}
+
+.timer {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+@media screen and (min-width: 320px) {
+  .timer {
+    gap: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .timer {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}
+
+.timer .field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer .value {
+  font-size: 32px;
+  font-weight: 900px;
+}
+
+.timer .label {
+  margin-top: -4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -2%;
+}

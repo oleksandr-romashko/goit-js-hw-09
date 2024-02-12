@@ -6,6 +6,10 @@
 */
 @import url('./reset.css');
 @import url('./common.css');
+@import url('./container.css');
+@import url('./01-color-switcher.css');
+@import url('./02-timer.css');
+@import url('./03-promises.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
