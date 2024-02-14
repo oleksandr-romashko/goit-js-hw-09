@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.7.min.css';
 
 const elements = {
   picker: document.querySelector('#datetime-picker'),
@@ -20,7 +22,7 @@ const options = {
   onClose(selectedDates) {
     if (new Date(selectedDates[0]) <= Date.now()) {
       elements.startBtn.toggleAttribute('disabled', true);
-      alertPastTimedate();
+      NotifyPastTimedate();
     } else {
       elements.startBtn.toggleAttribute('disabled', false);
     }
@@ -35,7 +37,7 @@ const picker = flatpickr('#datetime-picker', options);
 function onStartClick() {
   const between = picker.selectedDates[0].getTime() - Date.now();
   if (between <= 0) {
-    alertPastTimedate();
+    NotifyPastTimedate();
     return;
   }
   elements.picker.disabled = true;
@@ -93,8 +95,8 @@ function addLeadingZero(value) {
 }
 
 /**
- * * Alert user about selected timedate is in the past.
+ * * Notifies about selected timedate is in the past.
  */
-function alertPastTimedate() {
-  window.alert('Please choose a date in the future');
+function NotifyPastTimedate() {
+  Notify.failure('Please choose a date in the future');
 }
