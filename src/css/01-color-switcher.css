@@ -1,4 +1,6 @@
 :root {
+  --custom-button-font-size: 18px;
+
   --color-grey: #eeedef;
   --color-grey-darker: rgb(225, 225, 225);
 
@@ -14,6 +16,8 @@ body {
   min-height: 100%;
   padding: 16px;
   margin: 0;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .color-switcher {
@@ -29,8 +33,15 @@ body {
 }
 
 .color-switcher button {
+  width: 80px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 14px 24px;
   border-radius: 0;
+  font-size: inherit;
+  font-family: inherit;
   text-transform: uppercase;
   background-color: var(--color-grey);
   border: 1px solid rgba(0, 0, 0, 0.12);
