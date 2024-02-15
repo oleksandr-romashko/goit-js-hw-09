@@ -1,7 +1,9 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import { Notify } from 'notiflix';
-import 'notiflix/dist/notiflix-3.2.7.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+notifyPastTimedate();
 
 const elements = {
   picker: document.querySelector('#datetime-picker'),
@@ -22,7 +24,7 @@ const options = {
   onClose(selectedDates) {
     if (new Date(selectedDates[0]) <= Date.now()) {
       elements.startBtn.toggleAttribute('disabled', true);
-      NotifyPastTimedate();
+      notifyPastTimedate();
     } else {
       elements.startBtn.toggleAttribute('disabled', false);
     }
@@ -37,7 +39,7 @@ const picker = flatpickr('#datetime-picker', options);
 function onStartClick() {
   const between = picker.selectedDates[0].getTime() - Date.now();
   if (between <= 0) {
-    NotifyPastTimedate();
+    notifyPastTimedate();
     return;
   }
   elements.picker.disabled = true;
@@ -100,6 +102,21 @@ function addLeadingZero(value) {
 /**
  * * Notifies about selected timedate is in the past.
  */
-function NotifyPastTimedate() {
-  Notify.failure('Please choose a date in the future');
+function notifyPastTimedate() {
+  iziToast.warning({
+    position: 'topRight',
+    message: 'Please choose a date in the future',
+    maxWidth: '380',
+    messageSize: '18',
+    backgroundColor: '#fd4b3f',
+    messageColor: '#fafafa',
+    iconUrl: './../img/cross-icon.svg',
+    close: false,
+    closeOnClick: false,
+    timeout: '2500',
+    pauseOnHover: true,
+    progressBar: false,
+    transitionIn: 'fadeIn',
+    transitionOut: 'fadeOut',
+  });
 }
