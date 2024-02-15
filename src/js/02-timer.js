@@ -3,8 +3,6 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-notifyPastTimedate();
-
 const elements = {
   picker: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('[data-start]'),
