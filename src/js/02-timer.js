@@ -115,7 +115,7 @@ function notifyPastTimedate() {
     messageSize: '18',
     backgroundColor: '#fd4b3f',
     messageColor: '#fafafa',
-    iconUrl: './../img/cross-icon.svg',
+    iconUrl: './../img/javascript.svg',
     close: false,
     closeOnClick: false,
     timeout: '2500',
