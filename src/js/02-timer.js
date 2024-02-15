@@ -42,12 +42,9 @@ function onStartClick() {
   }
   elements.picker.disabled = true;
   elements.startBtn.disabled = true;
+  updateTimer();
 
-  setInterval(() => {
-    const between = picker.latestSelectedDateObj.getTime() - Date.now();
-    const timeObj = convertMs(between);
-    updateTimer(timeObj);
-  }, 1000);
+  setInterval(updateTimer, 1000);
 }
 
 /**
@@ -78,7 +75,13 @@ function convertMs(ms) {
  * * Updates on page timer html elements whith new remaining time
  * @param {object} time time object, consisting of days, hours, minutes and seconds values.
  */
-function updateTimer(time) {
+function updateTimer() {
+  const between = picker.latestSelectedDateObj.getTime() - Date.now();
+  const timeObj = convertMs(between);
+  writeTime(timeObj);
+}
+
+function writeTime(time) {
   elements.days.textContent = addLeadingZero(time.days);
   elements.hours.textContent = addLeadingZero(time.hours);
   elements.minutes.textContent = addLeadingZero(time.minutes);
