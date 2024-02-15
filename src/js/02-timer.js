@@ -3,6 +3,9 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+const TIME_INTERVAL = 1000;
+let intervalId;
+
 const elements = {
   picker: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('[data-start]'),
@@ -44,7 +47,7 @@ function onStartClick() {
   elements.startBtn.disabled = true;
   updateTimer();
 
-  setInterval(updateTimer, 1000);
+  intervalId = setInterval(updateTimer, TIME_INTERVAL);
 }
 
 /**
@@ -76,7 +79,11 @@ function convertMs(ms) {
  * @param {object} time time object, consisting of days, hours, minutes and seconds values.
  */
 function updateTimer() {
-  const between = picker.latestSelectedDateObj.getTime() - Date.now();
+  let between = picker.latestSelectedDateObj.getTime() - Date.now();
+  if (between <= TIME_INTERVAL) {
+    clearInterval(intervalId);
+    between = 0;
+  }
   const timeObj = convertMs(between);
   writeTime(timeObj);
 }
