@@ -109,16 +109,15 @@ function addLeadingZero(value) {
  */
 function notifyPastTimedate() {
   iziToast.warning({
+    theme: 'dark',
     position: 'topRight',
     message: 'Please choose a date in the future',
-    maxWidth: '380',
-    messageSize: '18',
+    messageSize: '22',
     backgroundColor: '#fd4b3f',
     messageColor: '#fafafa',
-    iconUrl: '/src/img/cross-icon.svg.svg',
     close: false,
     closeOnClick: false,
-    timeout: '2500',
+    timeout: '3000',
     pauseOnHover: true,
     progressBar: false,
     transitionIn: 'fadeIn',

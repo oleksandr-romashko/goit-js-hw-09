@@ -4,7 +4,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 const warningOptions = {
   position: 'topRight',
   messageSize: '22',
-  maxWidth: '400',
   messageColor: '#fafafa',
   icon: false,
   close: false,
